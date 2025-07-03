@@ -1,6 +1,6 @@
 // 기상청 API 키
 const serviceKey =
-  "NUqg9iZg+R57kpL1qrF1tst+AG3VXF5LAecO+CNKVMPmo34670TTUOan29Sq5DgB6/UXYTHmJOsUHoUp0CuKQw==";
+  "vIYycDaDyxG+Vd24Pk+gCqu34X26oDWcqFbuZ9EL4ld8M3QcEi9Rchm2CkfaTD2YjKNIQJioRerrbst2rPSaAA==";
 
 const $baseDate = document.getElementById("base_date");
 const $baseTime = document.getElementById("base_time");
@@ -96,7 +96,6 @@ function isProbablyJSON(text) {
   const trimmed = text.trim();
   return trimmed.startsWith("{") || trimmed.startsWith("[");
 }
-
 
 function fetchData() {
   const baseDate = $baseDate.value.replace(/-/g, "");
