@@ -1,6 +1,6 @@
 let savedFeltTemperature; // 전역 변수 선언
 let weatherLevel;
-const serverHost = "http://192.168.162.220:8080";
+const serverHost = "http://localhost:9092";
 
 // Base64URL → Base64 디코딩
 function b64UrlDecode(str) {
@@ -193,7 +193,8 @@ document
         // 새 이미지 추가
         recommendation.forEach((recommendation) => {
           const image = document.createElement("img");
-          image.src = `${serverHost}/${recommendation.image_url}`;
+          // image.src = `${serverHost}/${recommendation.image_url}`;
+          image.src = `${recommendation.image_url}`;
           image.alt = `추천 상품 ${recommendation.idx}`;
           image.classList.add("product-image"); // 스타일을 위해 클래스 추가 가능
 
@@ -240,7 +241,8 @@ document
           "savedRecommendations",
           JSON.stringify(
             recommendation.map((r) => ({
-              src: `${serverHost}/${r.image_url}`,
+              // src: `${serverHost}/${r.image_url}`,
+              src: `${r.image_url}`,
               alt: `추천 상품 ${r.idx}`,
               category: r.category,
               productIdx: r.idx,
@@ -301,7 +303,8 @@ document
         // 새 이미지 추가
         recommendation.forEach((recommendation) => {
           const image = document.createElement("img");
-          image.src = `${serverHost}/${recommendation.image_url}`;
+          // image.src = `${serverHost}/${recommendation.image_url}`;
+          image.src = `${recommendation.image_url}`;
           image.alt = `추천 상품 ${recommendation.idx}`;
           image.classList.add("product-image"); // 스타일을 위해 클래스 추가 가능
 
@@ -334,7 +337,8 @@ document
           "savedRecommendations",
           JSON.stringify(
             recommendation.map((r) => ({
-              src: `${serverHost}/${r.image_url}`,
+              // src: `${serverHost}/${r.image_url}`,
+              src: `${r.image_url}`,
               alt: `추천 상품 ${r.idx}`,
               category: r.category,
               productIdx: r.idx,
@@ -409,7 +413,8 @@ document
         // 새 이미지 추가
         recommendation.forEach((recommendation) => {
           const image = document.createElement("img");
-          image.src = `${serverHost}/${recommendation.image_url}`;
+          // image.src = `${serverHost}/${recommendation.image_url}`;
+          image.src = `${recommendation.image_url}`;
           image.alt = `추천 상품 ${recommendation.idx}`;
           image.classList.add("product-image"); // 스타일을 위해 클래스 추가 가능
 
@@ -442,7 +447,8 @@ document
           "savedRecommendations",
           JSON.stringify(
             recommendation.map((r) => ({
-              src: `${serverHost}/${r.image_url}`,
+              // src: `${serverHost}/${r.image_url}`,
+              src: `${r.image_url}`,
               alt: `추천 상품 ${r.idx}`,
               category: r.category,
               productIdx: r.idx,
@@ -488,7 +494,8 @@ function restoreRecommendationsFromLocalStorage() {
   items.forEach((it) => {
     document.querySelectorAll(`.category.${it.category}`).forEach((div) => {
       const img = document.createElement("img");
-      img.src = `${serverHost}/${it.src}`;
+      // img.src = `${serverHost}/${it.src}`;
+      img.src = `${it.src}`;
       img.alt = it.alt;
       img.className = "product-image";
 
@@ -575,7 +582,8 @@ fetch("/product/hotpicks")
 
       // img 태그 생성
       const img = document.createElement("img");
-      img.src = serverHost + "/" + image_url;
+      // img.src = serverHost + "/" + image_url;
+      img.src = image_url;
       img.alt = name || `pick${index + 1}`;
       img.style.width = "100%";
       img.style.height = "100%";
